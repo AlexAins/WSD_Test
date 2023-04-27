@@ -1,5 +1,7 @@
-function WaterFill(){
-    console.log("hi")
+function WaterFill(arr, int){
+    let bottleSize = arr;
+    let taps = int;
+    console.log(bottleSize, taps);
 };
 
-WaterFill();
+WaterFill([24,5,6], 2);
