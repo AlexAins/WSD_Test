@@ -1,3 +1,5 @@
+// Main Question
+
 function WaterFill(arr, int){
     // Stating variables
     let bottleSize = arr;
@@ -9,14 +11,15 @@ function WaterFill(arr, int){
         tapQueue.push(0);
     }
 
-    // Finding smallest Tap Queue 
-    let smallestQueue = tapQueue.indexOf(Math.min(...tapQueue))
+    // For Loop to add time for each water bottle to array of taps
+    for(let j=0; j<bottleSize.length; j++){
+        let smallestQueue = tapQueue.indexOf(Math.min(...tapQueue));
+        tapQueue[smallestQueue] += bottleSize[j]/100;
+    }
 
-    // Now need to use a for loop to add time to each tap in the array, then have next bottle find smallest queue and repeat for all bottles.
-    // After we can simply find highest tap time in tapQueue array to find total time of bottle filling event
+    let totalTime = Math.max(...tapQueue)
 
-    console.log(smallestQueue);
-    console.log(tapQueue);
+    console.log("The total time to fill all water bottles is: " + totalTime + " seconds");
 };
 
-WaterFill([1000,500], 5);
+WaterFill([1000,500,200,250,150], 3);
