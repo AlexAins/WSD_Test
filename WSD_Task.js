@@ -17,6 +17,7 @@ function WaterFill(arr, int){
         tapQueue[smallestQueue] += bottleSize[j]/100;
     }
 
+    // Finding tap with highest time which will be total time
     let totalTime = Math.max(...tapQueue)
 
     console.log("The total time to fill all water bottles is: " + totalTime + " seconds");
