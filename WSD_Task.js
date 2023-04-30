@@ -1,9 +1,17 @@
 // Main Question
 
-function WaterFill(arr, int){
+function WaterFill(bottleSize, taps){
+
+    // Input Verification
+    if(bottleSize.length < 1 || !Array.isArray(bottleSize) || !bottleSize.every(num => Number.isInteger(num))){
+        throw new Error('Invalid Input: bottleSize have to be an array of non-negative numbers')
+    }
+    
+    if(taps < 1 || typeof(taps) !== 'number'){
+        throw new Error('Invalid Input: taps has to be a positive integer')
+    }
+
     // Stating variables
-    let bottleSize = arr;
-    let taps = int;
     let tapQueue = [];
 
     // Creating element in array for each tap
@@ -23,4 +31,4 @@ function WaterFill(arr, int){
     console.log("The total time to fill all water bottles is: " + totalTime + " seconds");
 };
 
-WaterFill([1000,500,200,250,150], 3);
+WaterFill([1000,500,250,600,150], 4);
