@@ -28,6 +28,7 @@ function WaterFill(bottleSize, taps){
     let totalTime = Math.max(...tapQueue)
 
     console.log("The total time to fill all water bottles is: " + totalTime + " seconds");
+    return totalTime;
 };
 
 
@@ -62,11 +63,11 @@ function WalkWaterFill(bottleSize, taps){
     let totalTime = Math.max(...tapQueue)
 
     console.log("The total time to fill all water bottles is: " + totalTime + " seconds");
-
+    return totalTime;
 }
 
 
-// Different Flows (Assuming user knows flow of each tap)
+// Different Flows (Assuming user knows flow of each tap) (Includes as walk to tap variable that can be edited)
 function FlowWaterFill(bottleSize, taps, tapFlowRate){
 
     // Input Verification
@@ -78,8 +79,8 @@ function FlowWaterFill(bottleSize, taps, tapFlowRate){
         throw new Error('Invalid Input: taps has to be a positive integer')
     }
 
-    if(tapFlowRate.length < 1 || !Array.isArray(tapFlowRate) || !tapFlowRate.every(num => Number.isInteger(num))){
-        throw new Error('Invalid Input: tapFlowRate has to be an array of non-negative numbers')
+    if(tapFlowRate.length !== taps || !Array.isArray(tapFlowRate) || !tapFlowRate.every(num => Number.isInteger(num))){
+        throw new Error('Invalid Input: tapFlowRate has to be an array of non-negative numbers equal to the stated amount of taps')
     }
 
 
@@ -102,9 +103,13 @@ function FlowWaterFill(bottleSize, taps, tapFlowRate){
     let totalTime = Math.max(...tapQueue)
 
     console.log("The total time to fill all water bottles is: " + totalTime + " seconds");
-
+    return totalTime;
 }
 
+// Examples
 WaterFill([1000,500,250,600,150], 2);
 WalkWaterFill([1000,500,250,600,150], 2);
-FlowWaterFill([1000,500,250,600,150],2,[200,100])
+FlowWaterFill([1000,500,250,600,150],2,[100,100])
+
+// Bonus Point 4
+// I believe the answer is No but not sure how to prove it.
